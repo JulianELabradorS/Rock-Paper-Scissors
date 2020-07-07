@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
+//Styles
+import './styles/App.css';
+//COMPONENTS
+import Header from './components/header';
+import Game from './components/game';
+import Modal from './components/modal';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props) {
+	const { score, isPlaying, isSelected, itemPcSelected, result, openModal, pcScore } = props.state;
+	const {
+		buttonsRef,
+		handleClickSelection,
+		gameRef,
+		pcSelectionRef,
+		handleClickReset,
+		handleClickRules,
+	} = props;
+
+	return (
+		<Fragment>
+			<Header
+				isPlaying={isPlaying}
+				handleClickPlay={props.handleClickPlay}
+				score={score}
+				pcScore={pcScore}
+			/>
+			<Game
+				buttonsRef={buttonsRef}
+				isSelected={isSelected}
+				gameRef={gameRef}
+				itemPcSelected={itemPcSelected}
+				pcSelectionRef={pcSelectionRef}
+				result={result}
+				handleClickSelection={handleClickSelection}
+				handleClickReset={handleClickReset}
+				handleClickRules={handleClickRules}
+			/>
+			<Modal openModal={openModal} handleClickRules={handleClickRules} />
+		</Fragment>
+	);
 }
 
 export default App;

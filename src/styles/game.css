@@ -1,0 +1,162 @@
+.game {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 0 auto;
+	background-image: url('../assets/images/bg-pentagon.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	max-width: 1200px;
+	height: 625px;
+	transition: all 0.5s ease-in-out;
+}
+.game__text {
+	display: flex;
+	justify-content: space-around;
+	color: white;
+	font-size: 1.5em;
+	margin-top: 100px;
+	letter-spacing: 1px;
+	animation-name: showText;
+	animation-duration: 2s;
+	width: 768px;
+}
+.game__text > p {
+	width: 260px;
+	text-align: center;
+}
+.game__buttons {
+	display: flex;
+	overflow: hidden;
+	position: relative;
+	width: 768px;
+	height: 85%;
+	justify-content: space-evenly;
+	padding-top: 30px;
+}
+.game__buttons__position {
+	background-color: hsl(0, 0%, 35%);
+	height: 130px;
+	width: 130px;
+	border-radius: 50%;
+	opacity: 50%;
+	transform: scale(2);
+	position: absolute;
+}
+.R {
+	left: 66%;
+	top: 19%;
+}
+.L {
+	left: 16.4%;
+	top: 19%;
+}
+.game__buttons__button {
+	height: 130px;
+	width: 130px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.5s ease-in-out;
+	pointer-events: none;
+}
+
+.game__buttons__button__inside {
+	background-color: #fff;
+	width: 75%;
+	height: 75%;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rock {
+	background-image: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+	position: absolute;
+	left: calc(50% - 62.5px);
+	top: 85px;
+}
+
+.paper {
+	background-image: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+	position: absolute;
+	left: 60%;
+	top: 200px;
+}
+
+.scissors {
+	background-image: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+	position: absolute;
+	top: 200px;
+	left: 25%;
+}
+
+.lizard {
+	background-image: radial-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+	position: absolute;
+	top: 380px;
+	left: 28%;
+}
+
+.spock {
+	background-image: radial-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+	position: absolute;
+	top: 380px;
+	left: 56%;
+}
+
+.hidden {
+	display: none;
+}
+.selected {
+	opacity: 1;
+	transform: scale(2);
+	left: 16.4%;
+	top: 19%;
+}
+
+#game__buttons__button--pcSelected {
+	transform: scale(2);
+	left: 66%;
+	top: 19%;
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
+}
+.game__result {
+	position: absolute;
+	top: 50%;
+	text-align: center;
+}
+.game__result__text {
+	color: #fff;
+	font-size: 4em;
+	margin-bottom: 20px;
+}
+.game__result__button {
+	font-size: 2em;
+	color: hsl(214, 47%, 23%);
+	padding: 10px 70px;
+	border-radius: 5px;
+	border: none;
+}
+.game__rules {
+	position: absolute;
+	padding: 15px 50px;
+	background-color: transparent;
+	color: #fff;
+	border: #fff solid 2px;
+	border-radius: 5px;
+	bottom: 20px;
+	right: 20px;
+}
+@keyframes showText {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
